@@ -296,7 +296,7 @@
       },
       item: {
         condition: {
-          text: 'Windy',
+          text: 'Windy (cached)',
           date: 'Thu, 21 Jul 2016 09:00 PM EDT',
           temp: 31,
           code: 24
@@ -353,5 +353,10 @@
     app.saveSelectedCities()
   }
 
-  // TODO add service worker code here
+  // Add service worker code here
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(function () {
+      console.log('Service Worker Registered')
+    })
+  }
 })()
